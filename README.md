@@ -8,10 +8,17 @@ Allow to convert Markdown like synthax text to html omiting all tags apart `<br/
 
 ## Examples:
 
-``print(restricted_markdown("**oui** *non* http://wikipedia.org and https://youtube.com and `code here` yes"))``
+``print(restricted_markdown("**oui** *non* http://wikipedia.org and https://youtube.com and `code here` <br/> yes"))``
 
 Output:
 
-`<b>oui</b> <i>non</i> <a href = 'http://wikipedia.org'>http://wikipedia.org</a> and <a href = 'https://youtube.com'>https://youtube.com</a> and <code>code here</code> yes`
-`
+`<b>oui</b> <i>non</i> <a href = 'http://wikipedia.org'>http://wikipedia.org</a> and <a href = 'https://youtube.com'>https://youtube.com</a> and <code>code here</code> <br/> yes`
 
+=========================
+
+``print(restricted_markdown(value = "**oui** *non* http://wikipedia.org and https://youtube.com and `code here` <br/> yes",
+      allowed_l = ["italic"]))``
+
+Output:
+
+``**oui** <i>non</i> http://wikipedia.org and https://youtube.com and `code here`  yes``
