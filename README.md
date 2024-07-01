@@ -8,6 +8,10 @@ Allow to convert Markdown like synthax text to html omiting all tags apart `<br/
 
 You can choose wich tags to keep in an list argument called `allowed_l`
 
+# Dependencies
+
+- re
+
 ## Function
 
 `restricted_markdown(value, allowed_l = ["code", "weblinks", "bold", "italic", "breakline"])`
