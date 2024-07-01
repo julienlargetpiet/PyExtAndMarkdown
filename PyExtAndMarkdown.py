@@ -72,5 +72,3 @@ def restricted_markdown(value):
     value = r_spe.sub(" ", value)
     return value
 
-print(restricted_markdown("**oui** *non* http://wikipedia.org and https://youtube.com and `code here` yes"))
-
