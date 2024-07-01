@@ -8,7 +8,7 @@ Allow to convert Markdown like synthax text to html omiting all tags apart `<br/
 
 ## Examples:
 
-`print(restricted_markdown("**oui** *non* http://wikipedia.org and https://youtube.com and `code here` yes"))`
+``print(restricted_markdown("**oui** *non* http://wikipedia.org and https://youtube.com and `code here` yes"))``
 
 Output:
 
