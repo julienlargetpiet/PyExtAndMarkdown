@@ -6,6 +6,12 @@ Set of functions to specifically convert Markdown to HTML in Python, omiting cer
 
 Allow to convert Markdown like synthax text to html omiting all tags apart `<br/>`, `<i></i>`, `<b></b>` and all links those beginning by `https://` or `http://` (no local links).
 
+You can choose wich tags to keep in an list argument called `allowed_l`
+
+## Function
+
+`restricted_markdown(value, allowed_l = ["code", "weblinks", "bold", "italic", "breakline"])`
+
 ## Examples:
 
 ``print(restricted_markdown("**oui** *non* http://wikipedia.org and https://youtube.com and `code here` <br/> yes"))``
