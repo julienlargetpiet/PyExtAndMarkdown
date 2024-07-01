@@ -1,8 +1,10 @@
 import re
 
-def restricted_markdown(value, allowed_l = ["code", "weblinks", "bold", "italic", "breakline"]):
+def restricted_markdown(value, allowed_l = ["code", "weblinks", "bold", "italic", "breakline"], never_value = "¤"):
+    r = re.compile(never_value)
+    value = r.sub("", value)
     value = " " + value + " "
-    r_spe = re.compile("¤")
+    r_spe = re.compile(never_value)
     if "breakline" in allowed_l:
         r = re.compile("<br/>")
         value = r.sub("¤", value)
@@ -13,7 +15,7 @@ def restricted_markdown(value, allowed_l = ["code", "weblinks", "bold", "italic"
         r = re.compile(r'<[a-z|0-9|/]+?>')
         value = r.sub('', value)
     r = re.compile(" ")
-    value = r.sub("¤", value)
+    value = r.sub(never_value, value)
     value2 = value
     value = " ".join(value)
     value = value.split(" ")

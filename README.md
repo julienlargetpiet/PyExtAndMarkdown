@@ -14,7 +14,13 @@ You can choose wich tags to keep in an list argument called `allowed_l`
 
 ## Function
 
-`restricted_markdown(value, allowed_l = ["code", "weblinks", "bold", "italic", "breakline"])`
+`restricted_markdown(value, allowed_l = ["code", "weblinks", "bold", "italic", "breakline"], never_value = "¤")`
+
+## Arguments
+
+- `value` is tyhe input string
+- `allowed_l` is the list containing all the allowed tags
+- `never_value` is a string that won't be used in the text `value`
 
 ## Examples:
 
