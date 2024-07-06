@@ -28,7 +28,7 @@ You can choose wich tags to keep in an list argument called `allowed_l`
 
 Output:
 
-`<b>oui</b> <i>non</i> <a href = 'http://wikipedia.org'>http://wikipedia.org</a> and <a href = 'https://youtube.com'>https://youtube.com</a> and <code>code here</code> <br/> yes`
+`<p><b>oui</b> <i>non</i> <a href = 'http://wikipedia.org'>http://wikipedia.org</a> and <a href = 'https://youtube.com'>https://youtube.com</a> and <code>code here</code> <br/> yes</p>`
 
 =========================
 
@@ -37,4 +37,4 @@ Output:
 
 Output:
 
-``**oui** <i>non</i> http://wikipedia.org and https://youtube.com and `code here`  yes``
+``<p>**oui** <i>non</i> http://wikipedia.org and https://youtube.com and `code here`  yes</p>``

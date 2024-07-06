@@ -8,7 +8,7 @@ def restricted_markdown(value, allowed_l = ["code", "weblinks", "bold", "italic"
     if "breakline" in allowed_l:
         r = re.compile("<br/>")
         value = r.sub("¤", value)
-        r = re.compile(r'<[a-z|0-9|/]+?>')
+        r = re.compile(r'<[A-Z|a-z|0-9|/]+?>')
         value = r.sub('', value)
         value = r_spe.sub("<br/>", value)
     else:
@@ -32,10 +32,10 @@ def restricted_markdown(value, allowed_l = ["code", "weblinks", "bold", "italic"
                     else:
                         value[idx[i]] = "</code>"
     if "bold" in allowed_l:
-        r_bold = re.compile(r'\*\*([a-z|0-9]){1,}\*\*')
+        r_bold = re.compile(r'\*\*([A-Z|a-z|0-9]){1,}\*\*')
         bold_found = r_bold.search(value2)
         if not bold_found:
-            r_bold = re.compile(r'\_\_([a-z|0-9]){1,}\_\_')
+            r_bold = re.compile(r'\_\_([A-Z|a-z|0-9]){1,}\_\_')
             bold_found = r_bold.search(value2)
         bold_iter = r_bold.finditer(value2)
         if bold_found:
@@ -46,10 +46,10 @@ def restricted_markdown(value, allowed_l = ["code", "weblinks", "bold", "italic"
                 value[cur_ids[1] - 2] = "</b>"
                 value[cur_ids[1] - 1] = ""
     if "italic" in allowed_l:
-        r_italic = re.compile(r'([a-z|0-9|¤])\*([a-z|0-9]){1,}\*([a-z|0-9|¤])')
+        r_italic = re.compile(r'([A-Z|a-z|0-9|¤])\*([A-Z|a-z|0-9]){1,}\*([A-Z|a-z|0-9|¤])')
         italic_found = r_italic.search(value2)
         if not italic_found:
-            r_italic = re.compile(r'([a-z|0-9|¤])\_([a-z|0-9]){1,}\_([a-z|0-9|¤])')
+            r_italic = re.compile(r'([A-Z|a-z|0-9|¤])\_([A-Z|a-z|0-9]){1,}\_([A-Z|a-z|0-9|¤])')
             italic_found = r_italic.search(value2)
         italic_iter = r_italic.finditer(value2)
         if italic_found:
@@ -81,5 +81,6 @@ def restricted_markdown(value, allowed_l = ["code", "weblinks", "bold", "italic"
             value[cur_id] = "<a href = '" + href_link + "'>" + href_link + "</a>"
     value = "".join(value)
     value = r_spe.sub(" ", value)
-    return value
+    return "<p>" + value + "</p>"
 
+print(restricted_markdown("**oui** *non* http://wikipedia.org and https://youtube.com and `code here` <br/> yes"))
